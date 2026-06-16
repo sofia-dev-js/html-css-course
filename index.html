@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VONA COLORPARTY — Офіційний сайт</title>
+    
+    <style>
+        /* ==========================================
+           ГЛОБАЛЬНІ СТИЛІ та ОБНУЛЕННЯ
+           ========================================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b0711;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #00ffff, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff007f, #7f00ff);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            border: 2px solid #ffffff;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+        }
+
+        /* Сеткові контейнери */
+        .grid-layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        /* ==========================================
+           ШАПКА САЙТУ (HEADER)
+           ========================================== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(11, 7, 17, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #00ffff, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu a {
+            color: #b0aeb5;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding-bottom: 5px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #ff007f;
+            border-bottom: 2px solid #ff007f;
+        }
+
+        .wrapper {
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        /* ==========================================
+           ГОЛОВНА СЕКЦІЯ (HERO)
+           ========================================== */
+        .hero-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+            text-align: left;
+            padding: 40px 0;
+        }
+
+        .hero-text { flex: 1.2; }
+        .hero-text h1 { font-size: 52px; margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
+        .hero-desc { color: #d1ced6; font-size: 18px; line-height: 1.7; margin-bottom: 35px; }
+        .hero-actions { display: flex; gap: 20px; }
+        
+        .hero-img-box { flex: 0.8; display: flex; justify-content: center; }
+        .hero-poster { max-width: 100%; max-height: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(127,0,255,0.25); }
+
+        /* ==========================================
+           СЕКЦІЯ: ШОУ / GRAND OPENING (image_df5443.png)
+           ========================================== */
+        .show-card {
+            background: linear-gradient(135deg, rgba(32, 18, 54, 0.75), rgba(16, 9, 30, 0.9));
+            border: 1px solid rgba(255, 0, 127, 0.25);
+            border-radius: 24px;
+            padding: 45px;
+            width: 100%;
+            max-width: 650px;
+            box-sizing: border-box;
+            text-align: left;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+        }
+
+        .card-tag { color: #ff007f; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; font-weight: bold; margin-bottom: 20px; }
+        .card-main-title { font-size: 40px; font-weight: 800; margin: 0 0 25px 0; letter-spacing: 1px; }
+        .card-sub-details { color: #00ffff; font-weight: 700; font-size: 16px; line-height: 1.8; margin-bottom: 30px; letter-spacing: 0.5px; }
+        .info-row { display: flex; align-items: flex-start; margin-bottom: 18px; color: #d1ced6; font-size: 16px; line-height: 1.5; }
+        .info-row span { margin-right: 15px; font-size: 20px; line-height: 1; }
+
+        /* ==========================================
+           СЕКЦІЯ: ЦІНИ / TICKETS (image_df547a.png)
+           ========================================== */
+        .price-box {
+            background: rgba(20, 15, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 45px 35px;
+            width: 100%;
+            max-width: 450px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .price-box.featured { border-color: #ff007f; background: rgba(30, 15, 45, 0.4); }
+        .price-box h3 { font-size: 28px; margin: 0; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .price-num { font-size: 56px; font-weight: bold; color: #ffffff; margin: 25px 0; font-family: 'Arial Black', Gadget, sans-serif; }
+        .price-box ul { padding: 0; margin: 0 0 40px 0; list-style: none; text-align: left; width: 100%; color: #e2dfe6; font-size: 16px; line-height: 1.8; }
+        .price-box ul li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .price-box ul li::before { content: "✦"; color: #00ffff; margin-right: 12px; font-size: 14px; }
+
+        /* ==========================================
+           СЕКЦІЯ: КРИТЕРІЇ ВХОДУ / RULES (image_df549b.png)
+           ========================================== */
+        .rule-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .rule-card.border-pink { border-left: 4px solid #ff007f; border-top: 1px solid rgba(255,255,255,0.1); }
+        .rule-card.border-purple { border-left: 4px solid #7f00ff; border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        .rule-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .rule-header span { font-size: 24px; }
+        .rule-header h3 { font-size: 20px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+        .rule-card p { color: #b0aeb5; font-size: 15px; line-height: 1.6; margin: 0 0 20px 0; }
+        
+        .doc-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+        .doc-tag { background: rgba(0, 255, 255, 0.06); border: 1px solid rgba(0, 255, 255, 0.2); color: #00ffff; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: bold; }
+
+        /* ==========================================
+           ЛОКАЦІЯ / CONTACTS (image_df54d6.png)
+           ========================================== */
+        .contacts-wrapper { display: flex; gap: 50px; width: 100%; max-width: 1100px; text-align: left; align-items: stretch; }
+        .contacts-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .contacts-text h2 { font-size: 38px; font-weight: 800; text-transform: uppercase; margin: 0 0 35px 0; letter-spacing: 1px; }
+        
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 25px; font-size: 16px; color: #b0aeb5; line-height: 1.6; }
+        .contact-item .icon { font-size: 22px; margin-right: 15px; margin-top: 3px; display: inline-block; }
+        .contact-item strong { color: #ffffff; font-size: 18px; display: block; margin-bottom: 4px; }
+        .contact-item a { color: #b0aeb5; text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: #00ffff; }
+
+        .map-container { flex: 1; min-height: 350px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.15); border-radius: 24px; overflow: hidden; position: relative; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+        /* ==========================================
+           АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-block, .contacts-wrapper { flex-direction: column; text-align: center; }
+            .hero-text, .contacts-text { text-align: center; }
+            .hero-actions { justify-content: center; }
+            .contact-item { flex-direction: column; align-items: center; text-align: center; }
+            .contact-item .icon { margin-right: 0; margin-bottom: 8px; }
+            .map-container { min-height: 300px; width: 100%; max-width: 500px; margin: 30px auto 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            .header { flex-direction: column; padding: 15px; gap: 15px; }
+            .nav-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-menu a { margin: 0; font-size: 13px; }
+            .wrapper { margin-top: 140px; }
+            section { padding: 50px 15px; }
+            .hero-text h1 { font-size: 36px; }
+            .card-main-title { font-size: 30px; }
+            
+            /* Стійке центрування на мобільних телефонах */
+            .show-card, .price-box, .rule-card {
+                margin: 0 auto !important;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- НАВІГАЦІЯ -->
+    <header class="header">
+        <div class="logo">VONA COLORPARTY</div>
+        <nav class="nav-menu">
+            <a href="#hero" class="active">Головна</a>
+            <a href="#about">Про шоу</a>
+            <a href="#tickets">Квитки</a>
+            <a href="#rules">Правила</a>
+            <a href="#location">Локація</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <main>
+            
+            <!-- ГОЛОВНИЙ БАНЕР -->
+            <section id="hero">
+                <div class="hero-block">
+                    <div class="hero-text">
+                        <h1>Проєкт <br><span class="highlight">VONA COLORPARTY</span></h1>
+                        <p class="hero-desc">Приготуйтеся до повного занурення у вибух кольорів, шаленої музичної енергії та унікальних перформансів. Це не просто звичайна ніч, це абсолютно новий формат розваг, де кожен стає частиною великого кольорового шоу!</p>
+                        <div class="hero-actions">
+                            <a href="#tickets" class="btn btn-primary">Замовити квиток</a>
+                            <a href="#about" class="btn btn-secondary">Дізнатись більше</a>
+                        </div>
+                    </div>
+                    <div class="hero-img-box">
+                        <img src="image_eba508.jpg" alt="VONA Colorparty Poster" class="hero-poster">
+                    </div>
+                </div>
+            </section>
+
+            <!-- СЕКЦІЯ: ПРО ШОУ (GRAND OPENING) -->
+            <section id="about">
+                <div class="show-card">
+                    <div class="card-tag">Грандіозне відкриття</div>
+                    <h2 class="card-main-title">GRAND OPENING</h2>
+                    
+                    <div class="card-sub-details">
+                        DRAG QUEEN SHOW: DIVA LOLA<br>
+                        LINE UP: DJ SPOKOYNUY
+                    </div>
+                    
+                    <div class="info-row">
+                        <span>📅</span>
+                        <div>27 червня 2026</div>
+                    </div>
+                    <div class="info-row">
+                        <span>🕒</span>
+                        <div>23:00 – 04:00</div>
+                    </div>
+                    <div class="info-row">
+                        <span>🎵</span>
+                        <div>Українська енергія, міжнародні вайби та вибуховий сет від DJ Spokoynuy</div>
+                    </div>
+                    <div class="info-row">
+                        <span>✨</span>
+                        <div>Дрес-код: <strong>festlich-elegant</strong> (святково-елегантний)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- СЕКЦІЯ: КВИТКИ (ОДНАКОВІ ПРАВА, РІЗНА ЦІНА) -->
+            <section id="tickets">
+                <h2 style="font-size: 36px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; text-align: center;">Оберіть свій квиток</h2>
+                <p style="color: #a09ca6; font-size: 16px; margin-bottom: 20px; text-align: center; max-width: 600px;">Всі гості отримують однакові послуги та повний доступ до вечірки. Різниця лише в часі купівлі!</p>
+                
+                <div class="grid-layout">
+                    <!-- Картка 1: Early Bird -->
+                    <div class="price-box">
+                        <h3>EARLY BIRD</h3>
+                        <div class="price-num">€12</div>
+                        <ul>
+                            <li>Діє виключно для перших 30 гостей</li>
+                            <li>Повний доступ до танцполу та шоу</li>
+                            <li>Діє за умови раннього прибуття до клубу</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; box-sizing: border-box;">Придбати</a>
+                    </div>
+
+                    <!-- Картка 2: Standard -->
+                    <div class="price-box featured">
+                        <h3>STANDARD TICKET</h3>
+                        <div class="price-num">€15</div>
+                        <ul>
+                            <li>Стандартна ціна входу протягом всієї ночі</li>
+                            <li>Доступ до всіх розважальних зон</li>
+                            <li>Участь у головній програмі вечора</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%; box-sizing: border-box;">Придбати</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- СЕКЦІЯ: КРИТЕРІЇ ВХОДУ / ПРАВИЛА -->
+            <section id="rules">
+                <h2 style="font-size: 32px; font-weight: 800; text-transform: uppercase; margin-bottom: 40px; text-align: center;">Правила заходу</h2>
+                <div class="grid-layout">
+                    
+                    <!-- Картка 1: Документи -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span>🪪</span>
+                            <h3>Обов'язкові документи</h3>
+                        </div>
+                        <p>Вхід здійснюється виключно за наявності оригінальних документів, що засвідчують особу. Копії чи цифрові скриншоти не приймаються. Будь ласка, візьміть із собою один із документів:</p>
+                        <div class="doc-tags">
+                            <div class="doc-tag">Ausweis</div>
+                            <div class="doc-tag">Закордонний паспорт</div>
+                            <div class="doc-tag">Посвідчення водія</div>
+                        </div>
+                    </div>
+
+                    <!-- Картка 2: Вік -->
+                    <div class="rule-card border-pink">
+                        <div class="rule-header">
+                            <span>🔞</span>
+                            <h3>Віковий ценз 18+</h3>
+                        </div>
+                        <p>Суворий контроль віку на вході (Face Control). Особи, які не досягли 18 років, не будуть допущені на захід навіть у супроводі дорослих.</p>
+                    </div>
+
+                    <!-- Картка 3: Інклюзивність -->
+                    <div class="rule-card border-purple">
+                        <div class="rule-header">
+                            <span>🌈</span>
+                            <h3>Safe & LGBTQ+ Friendly</h3>
+                        </div>
+                        <p>VONA — це територія свободи, поваги та любові. Будь-які прояви дискримінації, сексизму, расизму, гомофобії чи трансфобії є неприпустимими. Порушники будуть негайно виведені охороною без повернення вартості квитків.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- СЕКЦІЯ: ДЕ ПРОХОДИТЬ ПОДІЯ / ЛОКАЦІЯ -->
+            <section id="location">
+                <div class="contacts-wrapper">
+                    <div class="contacts-text">
+                        <h2>Де проходить подія</h2>
+                        
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <strong>Клуб Serkiz</strong>
+                                Dinstätten 11, 25421 Pinneberg, Germany
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="icon">✉️</span>
+                            <div>
+                                <strong>Електронна пошта</strong>
+                                <a href="mailto:vona.colorparty@gmail.com">vona.colorparty@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="icon">📱</span>
+                            <div>
+                                <strong>Instagram</strong>
+                                <a href="https://www.instagram.com/vona.colorparty" target="_blank">@vona.colorparty</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Інтерактивна карта на точну адресу клубу в Піннебергу -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2360.772583861298!2d9.7946124!3d53.6559312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1464fbdf777ad%3A0x6b876fcfe0a0cfb5!2sDinst%C3%A4tten%2011%2C%2025421%20Pinneberg!5e0!3m2!1suk!2sde!4v1718570000000!5m2!1suk!2sde" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ПІДВАЛ -->
+        <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 50px; color: #a09ca6; font-size: 14px;">
+            <p>© 2026 VONA COLORPARTY. Усі права захищено. Слідкуйте за анонсами в <a href="https://www.instagram.com/vona.colorparty" target="_blank" style="color:#ff007f; text-decoration: none; font-weight: bold;">Instagram</a></p>
+        </footer>
+    </div>
+
+    <!-- Логіка підсвічування меню під час скролу -->
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-menu a");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                if (pageYOffset >= section.offsetTop - 200) { current = section.getAttribute("id"); }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) { link.classList.add("active"); }
+            });
+        });
+    </script>
+</body>
+</html>
